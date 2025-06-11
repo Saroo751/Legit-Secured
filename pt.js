@@ -234,3 +234,27 @@ function showOptions() {
     }, 600);
   });
 }
+
+function toggleLogin() {
+    const form = document.getElementById('loginFormContainer');
+    form.style.display = form.style.display === 'block' ? 'none' : 'block';
+  }
+
+  function handleReferralLogin(event) {
+    event.preventDefault();
+    const referral = document.getElementById('referralCode').value.trim();
+    const message = document.getElementById('loginMessage');
+
+    const isValid = referral === 'Legit009' || /^[A-Za-z0-9]{6}$/.test(referral);
+
+    if (isValid) {
+      message.textContent = 'Login successful!';
+      message.style.color = 'green';
+    } else {
+      message.textContent = 'Invalid referral code.';
+      message.style.color = 'red';
+    }
+  }
+
+
+
